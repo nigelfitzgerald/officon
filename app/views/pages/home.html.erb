@@ -1,2 +1,40 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<header>
+  <nav class="d-flex justify-content-between">
+    <a href="/"  class="navbar-brand"><i class="fa-solid fa-building"></i> Officon</a>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Book an office
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Book an office</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= render "form" %>
+          </div>
+          <%# <div class="modal-footer"> %>
+            <%# <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> %>
+            <%# <button type="button" class="btn btn-primary">Book now!</button> %>
+          <%# </div> %>
+        </div>
+      </div>
+    </div>
+    <a href="#">Sign in</a>
+  </nav>
+</header>
+<main>
+  <h1>Officon, the Office Directory</h1>
+  <div class="container">
+
+  </div>
+
+  <p>Find me in app/views/pages/home.html.erb</p>
+</main>
+<footer>
+  <p>&copy; Copyright test</p>
+</footer>
