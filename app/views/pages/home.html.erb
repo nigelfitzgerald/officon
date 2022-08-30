@@ -1,17 +1,17 @@
 <header>
   <nav class="d-flex justify-content-between">
     <a href="/"  class="navbar-brand"><i class="fa-solid fa-building"></i> Officon</a>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <!-- book an office button -->
+    <button type="button" class="btn btn-danger d-grid gap-2 col-6 mx-auto" data-bs-toggle="modal" data-bs-target="#bookOffice">
       Book an office
     </button>
 
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!-- book an office modal -->
+    <div class="modal fade" id="bookOffice" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="bookOfficeLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Book an office</h5>
+            <h5 class="modal-title" id="bookOfficeLabel">Book an office</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -24,15 +24,62 @@
         </div>
       </div>
     </div>
-    <a href="#">Sign in</a>
+    <div class="btn-group">
+      <a href="#" class="btn btn-danger"  data-bs-toggle="modal" data-bs-target="#rentOffice">Rent an office</a>
+      <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#login">Login</a>
+    </div>
+    <!-- rent an office modal -->
+    <div class="modal fade" id="rentOffice" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="rentOfficeLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="rentOfficeLabel">Rent an office</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= render "form" %>
+          </div>
+          <%# <div class="modal-footer"> %>
+            <%# <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> %>
+            <%# <button type="button" class="btn btn-primary">Book now!</button> %>
+          <%# </div> %>
+        </div>
+      </div>
+    </div>
+    <!-- login modal -->
+    <div class="modal fade" id="login" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginLabel">Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%# <%= render "devise/shared/new" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </nav>
 </header>
 <main>
   <h1>Officon, the Office Directory</h1>
-  <div class="container">
+  <figure>
+    <img src="../../../assets/images/office01.jpg" alt="Office Image" style="width:100%">
+    <figcaption>Discover only the best office spaces.</figcaption>
+  </figure>
+  <section>
+    <h2>Popular office spaces</h2>
+    <div class="container">
 
-  </div>
-
+    </div>
+  </section>
+  <section>
+    <h2>New office spaces</h2>
+  </section>
+  <section>
+    <h2>Cheapest office spaces</h2>
+  </section>
   <p>Find me in app/views/pages/home.html.erb</p>
 </main>
 <footer>
