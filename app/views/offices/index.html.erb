@@ -1,0 +1,12 @@
+<h1>Rent an office</h1>
+
+<% @offices.each do |office| %>
+  <li>
+    <%= link_to office.title, office_path(office) %>
+   <p>Price:</p><%= office.price %>
+  </li>
+<% end %>
+
+
+
+<%= link_to 'Add new office', new_office_path %>

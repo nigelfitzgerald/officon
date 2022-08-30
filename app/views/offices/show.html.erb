@@ -1,0 +1,8 @@
+<%= @office.title %>
+<%= @office.description %>
+<%= @office.price %>
+
+
+<%= link_to 'Back', offices_path %>
+<%= link_to 'Edit office details', edit_office_path %>
+<%= link_to 'Delete office', office_path(@office), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
