@@ -1,12 +1,14 @@
-<h1>Bookings</h1>
+<h1>My Bookings</h1>
 
-<div id=“bookings”>
-  <% @bookings.each do |booking| %>
+
+<% @bookings.each do |booking| %>
+  <li>
     <%= booking %>
-    <p>
-      <%# <%= link_to “Show this booking”, booking %>
-    </p>
-  <% end %>
-</div>
-
-<%# <%= link_to “New booking” %>
+    <%= booking.office.title %>
+    <%= booking.office.user.name %>
+    <%= booking.start_date %>
+    <%= booking.end_date %>
+    <%= link_to 'Update booking', edit_booking_path(booking) %>
+    <%= link_to 'Cancel', booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  </li>
+<% end %>
