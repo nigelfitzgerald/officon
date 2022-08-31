@@ -2,7 +2,8 @@
 <%= @office.description %>
 <%= @office.price %>
 
+<%= render "pages/form" %>
 
-<%= link_to 'Back', offices_path %>
-<%= link_to 'Edit office details', edit_office_path %>
-<%= link_to 'Delete office', office_path(@office), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<%= link_to 'Back', offices_path, class: 'btn btn-primary' %>
+<%= link_to 'Edit office details', edit_office_path, class: 'btn btn-primary' %>
+<%= link_to 'Delete office', office_path(@office), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-primary' %>
