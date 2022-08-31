@@ -5,20 +5,21 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(user: current_user)
   end
 
+
   def show
     @booking = Booking.find(params[:id])
   end
 
-  def new
-    @booking = Booking.new
-  end
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @office = Office.find(params[:office_id])
+    @booking.office = @office
     if @booking.save
-      redirect_to bookings_path
+      redirect_to bookings_path, notice: "Your booking is confirmed."
     else
-      render :new, status: :unprocessable_entity
+      render "offices/show", status: :unprocessable_entity
     end
   end
 
@@ -37,7 +38,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:name)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 
   def set_booking

@@ -7,6 +7,7 @@ class OfficesController < ApplicationController
 
   def show
     @office = Office.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
@@ -14,6 +15,7 @@ class OfficesController < ApplicationController
   end
 
   def create
+    raise
     @office = Office.new(office_params)
     @office.user = current_user
     if @office.save
