@@ -15,7 +15,6 @@ class OfficesController < ApplicationController
   end
 
   def create
-    raise
     @office = Office.new(office_params)
     @office.user = current_user
     if @office.save
