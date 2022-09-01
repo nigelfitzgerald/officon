@@ -1,12 +1,17 @@
 <h1>Rent an office</h1>
 
 <% @offices.each do |office| %>
-  <li>
-    <%= link_to office.title, office_path(office) %>
-   <p>Price:</p><%= office.price %>
-  </li>
+  <a href="<%= office_path(office) %>">
+  <div class="card-product">
+    <%# <%= image_tag "#" %>
+    <div class="card-product-infos">
+      <h2><%= office.title %></h2>
+      <p>Price: Rs <%= number_with_delimiter(office.price, :delimiter => ',') %></p>
+    </div>
+  </div>
+  </a>
 <% end %>
 
 
 
-<%= link_to 'Add new office', new_office_path %>
+<%= link_to 'Add new office', new_office_path, class: 'btn btn-dark' %>
