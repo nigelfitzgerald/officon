@@ -8,7 +8,7 @@
     <%= booking.office.user.name %>
     <%= booking.start_date %>
     <%= booking.end_date %>
-    <%= link_to 'Update booking', edit_booking_path(booking) %>
-    <%= link_to 'Cancel', booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <%= link_to 'Update booking', edit_booking_path(booking), class: 'btn btn-dark' %>
+    <%= link_to 'Cancel', booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-dark' %>
   </li>
 <% end %>
