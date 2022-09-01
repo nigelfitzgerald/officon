@@ -2,7 +2,11 @@ class OfficesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @offices = Office.all
+    if params[:query].present?
+      @offices = Office.search_by_title_and_description(params[:query])
+    else
+      @offices = Office.all
+    end
 
     @markers = @offices.geocoded.map do |office|
       {
