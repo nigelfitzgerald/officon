@@ -1,4 +1,12 @@
 <h1>Rent an office</h1>
+<%= form_with url: offices_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find an office"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
 
 <% @offices.each do |office| %>
   <a href="<%= office_path(office) %>">
