@@ -9,7 +9,7 @@
 <% end %>
 
 <% @offices.each do |office| %>
-  <a href="<%= office_path(office) %>">
+  <%= link_to office_path(office) do %>
   <div class="card-product">
     <%# <%= image_tag "#" %>
     <div class="card-product-infos">
@@ -17,7 +17,7 @@
       <p>Price: Rs <%= number_with_delimiter(office.price, :delimiter => ',') %></p>
     </div>
   </div>
-  </a>
+  <% end %>
 <% end %>
 
 
