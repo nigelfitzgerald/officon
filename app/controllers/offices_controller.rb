@@ -3,6 +3,16 @@ class OfficesController < ApplicationController
 
   def index
     @offices = Office.all
+
+    @markers = @offices.geocoded.map do |office|
+      {
+        lat: office.latitude,
+        lng: office.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {flat: flat})
+      }
+    end
+
+
   end
 
   def show
