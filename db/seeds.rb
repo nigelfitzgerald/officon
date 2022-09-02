@@ -39,4 +39,5 @@ office3 = Office.create(surface: 300, price: 1200, description: "Small office", 
 office4 = Office.create(surface: 400, price: 1300, description: "Individual office", title: "Cybercity", address: "Cyber Tower 2 Quatre Bornes, Mauritius", user_id: user4.id, image_url: "https://images.adsttc.com/media/images/6306/642d/79c4/892c/8ba3/84bb/slideshow/shopify-offices-berlin-mvrdv_16.jpg?1661363278")
 office5 = Office.create(surface: 500, price: 1400, description: "Joint office", title: "TheDot", address: "St.Pierre Bypass Rd, St Pierre, Mauritius", user_id: user5.id, image_url: "https://www.jainoncor.com/blog/wp-content/uploads/2019/10/Office-Space-in-Gurgaon.jpg")
 office6 = Office.create(surface: 600, price: 1500, description: "Open office", title: "The hive", address: "Old Post Office Road, St Pierre", user_id: user6.id, image_url: "http://www.3pi.in/images/so1.jpg")
+office7 = Office.create(surface: 700, price: 1600, description: "Coworking", title: "Les Kocottes", address: "Old Post Office Road, St Pierre", user_id: user6.id, image_url: "https://imageio.forbes.com/specials-images/imageserve/61576e0e6690a20767218a24/0x0.jpg?format=jpg&width=1200")
 puts "Finished"

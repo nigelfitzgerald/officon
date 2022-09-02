@@ -9,28 +9,18 @@
   <%# </div> %>
 
 
-  <section>
-    <h2>Office Spaces</h2>
-    <p></p>
+  <div>
+    <h2>Office Spaces in St Pierre</h2>
     <div class="cards">
-    <% @offices.each do |office| %>
-  <%= link_to office_path(office) do %>
+      <% @offices.each do |office| %>
+        <%= link_to office_path(office) do %>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= office.image_url %>)">
-    <%= office.title %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= office.image_url %>)">
+            <%= office.title %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
-  <% end %>
-<% end %>
-
-</div>
-  </section>
-  <section>
-    <h2>About us</h2>
-    <p></p>
-  </section>
-  <section>
-    <h2>Contact us</h2>
-    <p></p>
-  </section>
   <p>Find me in app/views/pages/home.html.erb</p>
 </main>
