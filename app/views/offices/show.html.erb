@@ -7,7 +7,10 @@
         <h2><%= @office.address %></h2>
         <p><%= @office.description %></p>
       </div>
+      <div>
+      <h2><%= @office.surface %>m<sup>2</sup></h2>
       <h2 class="card-office-pricing">Rs <%= number_with_delimiter(@office.price, :delimiter => ',') %></h2>
+      </div>
     </div>
   </div>
 

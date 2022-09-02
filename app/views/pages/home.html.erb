@@ -9,9 +9,11 @@
   <%# </div> %>
 
 
-  <div>
-    <h2>Office Spaces in St Pierre</h2>
-    <div class="cards">
+  <div class="container mt-3">
+    <div class="item">
+      <h2>Office Spaces in St Pierre</h2>
+    </div>
+    <div class="cards mt-3">
       <% @offices.each do |office| %>
         <%= link_to office_path(office) do %>
 
@@ -22,5 +24,4 @@
       <% end %>
     </div>
   </div>
-  <p>Find me in app/views/pages/home.html.erb</p>
 </main>
