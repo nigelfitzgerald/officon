@@ -1,7 +1,7 @@
 class Office < ApplicationRecord
   belongs_to :user
 
-  validates :surface, :price, :description, :title, :address, presence: true
+  validates :surface, :price, :description, :title, :address, :photo, presence: true
   # validates :title, length: { minimum: 10 }
 
   geocoded_by :address
