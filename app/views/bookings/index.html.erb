@@ -1,30 +1,46 @@
 <div class="container" style="height: 85vh">
   <h1>My Bookings</h1>
 
-  <% if @bookings.present? %>
-    <% @bookings.each do |booking| %>
-      <% if booking.end_date > DateTime.now %>
-        <li>
-          <%= booking.id %>
-          <%= booking.office.title %>
-          <%= booking.office.user.name %>
-          <%= booking.start_date %>
-          <%= booking.end_date %>
-          <%= link_to 'Update booking', edit_booking_path(booking), class: 'btn btn-dark' %>
-          <%= link_to 'Cancel', booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-dark' %>
-        </li>
-      <% else %>
-        <h1><%= "Past bookings" %></h1>
-        <li>
-          <%= booking.id %>
-          <%= booking.office.title %>
-          <%= booking.office.user.name %>
-          <%= booking.start_date %>
-          <%= booking.end_date %>
-        </li>
+<% if @bookings.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>User</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bookings.each do |booking| %>
+        <% if booking.end_date > DateTime.now %>
+          <tr>
+            <td><%= booking.id %></td>
+            <td><%= booking.office.title %></td>
+            <td><%= booking.office.user.name %></td>
+            <td><%= booking.start_date.to_date %></td>
+            <td><%= booking.end_date.to_date %></td>
+            <td><%= link_to 'Update booking', edit_booking_path(booking), class: 'btn btn-dark' %></td>
+            <td><%= link_to 'Cancel', booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-dark' %></td>
+          </tr>
+        <% else %>
+          <tr>
+            <td><%= booking.id %></td>
+            <td><%= booking.office.title %></td>
+            <td><%= booking.office.user.name %></td>
+            <td><%= booking.start_date.to_date %></td>
+            <td><%= booking.end_date.to_date %></td>
+            <td colspan="2"><%= "Past booking" %></td>
+            <td></td>
+          </tr>
+        <% end %>
       <% end %>
-    <% end %>
-  <% else %>
-    <p><%= "No bookings yet" %></p>
-  <% end %>
-</div>
+    </tbody>
+  </table>
+<% else %>
+  <p><%= "No bookings yet" %></p>
+<% end %>
+
