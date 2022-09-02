@@ -2,15 +2,26 @@
 
 <% if @bookings.present? %>
   <% @bookings.each do |booking| %>
-    <li>
-      <%= booking.id %>
-      <%= booking.office.title %>
-      <%= booking.office.user.name %>
-      <%= booking.start_date %>
-      <%= booking.end_date %>
-      <%= link_to 'Update booking', edit_booking_path(booking), class: 'btn btn-dark' %>
-      <%= link_to 'Cancel', booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-dark' %>
-    </li>
+    <% if booking.end_date > DateTime.now %>
+      <li>
+        <%= booking.id %>
+        <%= booking.office.title %>
+        <%= booking.office.user.name %>
+        <%= booking.start_date %>
+        <%= booking.end_date %>
+        <%= link_to 'Update booking', edit_booking_path(booking), class: 'btn btn-dark' %>
+        <%= link_to 'Cancel', booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-dark' %>
+      </li>
+    <% else %>
+      <h1><%= "Past bookings" %></h1>
+      <li>
+        <%= booking.id %>
+        <%= booking.office.title %>
+        <%= booking.office.user.name %>
+        <%= booking.start_date %>
+        <%= booking.end_date %>
+      </li>
+    <% end %>
   <% end %>
 <% else %>
   <p><%= "No bookings yet" %></p>

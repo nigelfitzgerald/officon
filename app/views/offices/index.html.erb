@@ -12,6 +12,7 @@
   <%= link_to office_path(office) do %>
   <div class="card-product">
     <%= cl_image_tag office.photo.key %>
+
     <div class="card-product-infos">
       <h2><%= office.title %></h2>
       <p>Price: Rs <%= number_with_delimiter(office.price, :delimiter => ',') %></p>

@@ -63,4 +63,5 @@ office6 = Office.new(surface: 600, price: 1500, description: "Open office", titl
 file = URI.open("https://res.cloudinary.com/officonproject/image/upload/v1662104849/bri9gk3rljoybmaiudzv.jpg")
 office6.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 office6.save
+
 puts "Finished"
