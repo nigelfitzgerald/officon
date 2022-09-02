@@ -1,10 +1,10 @@
-<div class="container" style="height: 85vh">
-  <%= simple_form_for(@office) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :surface %>
-    <%= f.input :price %>
-    <%= f.input :address %>
-    <%= f.submit %>
-  <% end %>
-</div>
+
+<%= simple_form_for(@office) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :surface %>
+  <%= f.input :price %>
+  <%= f.input :address %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit %>
+<% end %>

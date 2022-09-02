@@ -1,26 +1,36 @@
 <div class="container" style="height: 85vh">
-  <%= @office.title %>
-  <%= @office.description %>
-  <%= @office.price %>
-  <%= @office.address %>
+  <div class="item"><h1><%= @office.title %></h1></div>
+  <div class="card-office item">
+    <%= cl_image_tag @office.photo.key %>
+    <div class="card-office-infos">
+      <div>
+        <h2><%= @office.address %></h2>
+        <p>  <%= @office.description %></p>
+      </div>
+      <div>
+        <h2>  <%= @office.surface %>m<sup>2</sup></h2>
+        <h2 class="card-office-pricing">Rs   <%= number_with_delimiter(@office.price, :delimiter => ',') %></h2>
+      </div>
+    </div>
+  </div>
 
-
-
-  <% if @office.user != current_user %>
-    <%= simple_form_for [@office, @booking] do |f| %>
-      <%= f.label :start_date, "Start Date:" %>
-      <%= f.date_field :start_date %>
-      <%= f.label :end_date, "End Date:" %>
-      <%= f.date_field :end_date%>
-      <%= f.submit %>
+  <div class="item mt-3">
+    <% if @office.user != current_user %>
+      <%= simple_form_for [@office, @booking] do |f| %>
+        <%= f.label :start_date, "Start Date:" %>
+        <%= f.date_field :start_date %>
+        <%= f.label :end_date, "End Date:" %>
+        <%= f.date_field :end_date%>
+        <%= f.submit %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 
-
-
-  <%= link_to 'Back', offices_path, class: 'btn btn-dark' %>
-  <% if @office.user == current_user %>
-    <%= link_to 'Edit office details', edit_office_path, class: 'btn btn-dark' %>
-    <%= link_to 'Delete office', office_path(@office), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-dark' %>
-  <% end %>
+  <div class="item mt-3">
+    <%= link_to 'Back', offices_path, class: 'btn btn-dark' %>
+    <% if @office.user == current_user %>
+      <%= link_to 'Edit office details', edit_office_path, class: 'btn btn-dark' %>
+      <%= link_to 'Delete office', office_path(@office), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-dark' %>
+    <% end %>
+  </div>
 </div>

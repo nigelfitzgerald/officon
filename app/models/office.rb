@@ -1,5 +1,6 @@
 class Office < ApplicationRecord
   belongs_to :user
+  has_one_attached :photo
 
   validates :surface, :price, :description, :title, :address, presence: true
   # validates :title, length: { minimum: 10 }

@@ -9,17 +9,18 @@
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
 
-  <% @offices.each do |office| %>
-    <%= link_to office_path(office) do %>
-    <div class="card-product">
-      <%# <%= image_tag office.image_url %>
-      <div class="card-product-infos">
-        <h2><%= office.title %></h2>
-        <p>Price: Rs <%= number_with_delimiter(office.price, :delimiter => ',') %></p>
-      </div>
+<% @offices.each do |office| %>
+  <%= link_to office_path(office) do %>
+  <div class="card-product">
+    <%= cl_image_tag office.photo.key %>
+
+    <div class="card-product-infos">
+      <h2><%= office.title %></h2>
+      <p>Price: Rs <%= number_with_delimiter(office.price, :delimiter => ',') %></p>
     </div>
-    <% end %>
+  </div>
   <% end %>
+<% end %>
 
 
 

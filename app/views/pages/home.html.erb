@@ -10,19 +10,20 @@
     <%# </div> %>
 
 
-    <div>
+  <div class="container mt-3">
+    <div class="item">
       <h2>Office Spaces in St Pierre</h2>
-      <div class="cards">
-        <% @offices.each do |office| %>
-          <%= link_to office_path(office) do %>
-
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= office.image_url %>)">
-              <%= office.title %>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
     </div>
-    <%# <p>Find me in app/views/pages/home.html.erb</p> %>
+    <div class="cards mt-3">
+      <% @offices.each do |office| %>
+        <%= link_to office_path(office) do %>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path office.photo.key%>')">
+    <%= office.title %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
   </div>
 </main>
