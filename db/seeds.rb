@@ -1,10 +1,11 @@
 # This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+# The data can then be loaded with the bin/rails db:seed command (or newd alongside the database with db:setup).
 #
 # Examples:
 #
-#   movieMovie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+#   movieMovie.new([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   Character.new(name: "Luke", movie: movies.first)
+require "open-uri"
 
 Booking.destroy_all
 
@@ -33,10 +34,33 @@ user5.save
 user6 = User.new(email: "f@live.com", password: "123456", name: "Alice")
 user6.save
 
-office1 = Office.create(surface: 100, price: 1000, description: "Nice office", title: "ExTower", address: "Citadelle Mall, Sir Virgil Naz St, Port Louis, Mauritius", user_id: user1.id, image_url: "https://assets.architecturaldigest.in/photos/6008499aa8f8397741704a19/16:9/w_2560%2Cc_limit/Ronnie-Screwvala-mumbai-RSVP-office_2-2-1366x768.jpg")
-office2 = Office.create(surface: 200, price: 1100, description: "Big office", title: "NTower", address: "1 Cybercity, Ebene, Mauritius", user_id: user2.id, image_url: "https://www.livehome3d.com/assets/img/articles/types-of-offices/modern-office-with-the-city-view.jpg")
-office3 = Office.create(surface: 300, price: 1200, description: "Small office", title: "Vivéa", address: "Vivéa Business Park, Moka, Mauritius", user_id: user3.id, image_url: "https://imageio.forbes.com/specials-images/imageserve/61576e0e6690a20767218a24/0x0.jpg?format=jpg&width=1200")
-office4 = Office.create(surface: 400, price: 1300, description: "Individual office", title: "Cybercity", address: "Cyber Tower 2 Quatre Bornes, Mauritius", user_id: user4.id, image_url: "https://images.adsttc.com/media/images/6306/642d/79c4/892c/8ba3/84bb/slideshow/shopify-offices-berlin-mvrdv_16.jpg?1661363278")
-office5 = Office.create(surface: 500, price: 1400, description: "Joint office", title: "TheDot", address: "St.Pierre Bypass Rd, St Pierre, Mauritius", user_id: user5.id, image_url: "https://www.jainoncor.com/blog/wp-content/uploads/2019/10/Office-Space-in-Gurgaon.jpg")
-office6 = Office.create(surface: 600, price: 1500, description: "Open office", title: "The hive", address: "Old Post Office Road, St Pierre", user_id: user6.id, image_url: "http://www.3pi.in/images/so1.jpg")
+office1 = Office.new(surface: 100, price: 1000, description: "Nice office", title: "ExTower", address: "Citadelle Mall, Sir Virgil Naz St, Port Louis, Mauritius", user_id: user1.id)
+file = URI.open("https://res.cloudinary.com/officonproject/image/upload/v1662104849/bri9gk3rljoybmaiudzv.jpg")
+office1.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+office1.save
+
+office2 = Office.new(surface: 200, price: 1100, description: "Big office", title: "NTower", address: "1 Cybercity, Ebene, Mauritius", user_id: user2.id)
+file = URI.open("https://res.cloudinary.com/officonproject/image/upload/v1662104774/wpcb25ja1ymeowhka4kb.jpg")
+office2.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+office2.save
+
+office3 = Office.new(surface: 300, price: 1200, description: "Small office", title: "Vivéa", address: "Vivéa Business Park, Moka, Mauritius", user_id: user3.id)
+file = URI.open("https://res.cloudinary.com/officonproject/image/upload/v1662104797/tdudqjkpcrdqeni8cbkz.jpg")
+office3.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+office3.save
+
+office4 = Office.new(surface: 400, price: 1300, description: "Individual office", title: "Cybercity", address: "Cyber Tower 2 Quatre Bornes, Mauritius", user_id: user4.id)
+file = URI.open("https://res.cloudinary.com/officonproject/image/upload/v1662104815/y1vdasfoveemjjeidgn3.jpg")
+office4.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+office4.save
+
+office5 = Office.new(surface: 500, price: 1400, description: "Joint office", title: "TheDot", address: "St.Pierre Bypass Rd, St Pierre, Mauritius", user_id: user5.id)
+file = URI.open("https://res.cloudinary.com/officonproject/image/upload/v1662104832/mhpgpamdiu5kpvqlzymb.jpg")
+office5.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+office5.save
+
+office6 = Office.new(surface: 600, price: 1500, description: "Open office", title: "The hive", address: "Old Post Office Road, St Pierre", user_id: user6.id)
+file = URI.open("https://res.cloudinary.com/officonproject/image/upload/v1662104849/bri9gk3rljoybmaiudzv.jpg")
+office6.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+office6.save
 puts "Finished"
