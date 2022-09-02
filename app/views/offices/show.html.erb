@@ -1,7 +1,7 @@
 <div class="container">
   <div class="item"><h1><%= @office.title %></h1></div>
   <div class="card-office item">
-    <%= image_tag @office.image_url %>
+    <%= cl_image_tag @office.photo.key %>
     <div class="card-office-infos">
       <div>
         <h2><%= @office.address %></h2>
