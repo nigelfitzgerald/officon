@@ -17,11 +17,12 @@
       <% @offices.each do |office| %>
         <%= link_to office_path(office) do %>
 
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= office.image_url %>)">
-            <%= office.title %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path office.photo.key%>')">
+    <%= office.title %>
           </div>
         <% end %>
       <% end %>
     </div>
+
   </div>
 </main>
