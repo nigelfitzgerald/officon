@@ -1,26 +1,28 @@
 <main>
-  <div class="banner">
-    <div class="container">
-      <h1>Officon, evolving the way you work</h1>
+  <div class="container" style="height: 85vh">
+    <div class="banner">
+      <div class="container">
+        <h1>Officon, evolving the way you work</h1>
+      </div>
     </div>
-  </div>
-  <%# <div class="container">
-    <%= image_tag "office01.jpg", alt: "office image", width: "100%" %>
-  <%# </div> %>
+    <%# <div class="container">
+      <%= image_tag "office01.jpg", alt: "office image", width: "100%" %>
+    <%# </div> %>
 
 
-  <div>
-    <h2>Office Spaces in St Pierre</h2>
-    <div class="cards">
-      <% @offices.each do |office| %>
-        <%= link_to office_path(office) do %>
+    <div>
+      <h2>Office Spaces in St Pierre</h2>
+      <div class="cards">
+        <% @offices.each do |office| %>
+          <%= link_to office_path(office) do %>
 
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= office.image_url %>)">
-            <%= office.title %>
-          </div>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= office.image_url %>)">
+              <%= office.title %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
+    <%# <p>Find me in app/views/pages/home.html.erb</p> %>
   </div>
-  <p>Find me in app/views/pages/home.html.erb</p>
 </main>

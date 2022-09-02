@@ -1,24 +1,26 @@
-<%= @office.title %>
-<%= @office.description %>
-<%= @office.price %>
-<%= @office.address %>
+<div class="container" style="height: 85vh">
+  <%= @office.title %>
+  <%= @office.description %>
+  <%= @office.price %>
+  <%= @office.address %>
 
 
 
-<% if @office.user != current_user %>
-  <%= simple_form_for [@office, @booking] do |f| %>
-    <%= f.label :start_date, "Start Date:" %>
-    <%= f.date_field :start_date %>
-    <%= f.label :end_date, "End Date:" %>
-    <%= f.date_field :end_date%>
-    <%= f.submit %>
+  <% if @office.user != current_user %>
+    <%= simple_form_for [@office, @booking] do |f| %>
+      <%= f.label :start_date, "Start Date:" %>
+      <%= f.date_field :start_date %>
+      <%= f.label :end_date, "End Date:" %>
+      <%= f.date_field :end_date%>
+      <%= f.submit %>
+    <% end %>
   <% end %>
-<% end %>
 
 
 
-<%= link_to 'Back', offices_path, class: 'btn btn-dark' %>
-<% if @office.user == current_user %>
-  <%= link_to 'Edit office details', edit_office_path, class: 'btn btn-dark' %>
-  <%= link_to 'Delete office', office_path(@office), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-dark' %>
-<% end %>
+  <%= link_to 'Back', offices_path, class: 'btn btn-dark' %>
+  <% if @office.user == current_user %>
+    <%= link_to 'Edit office details', edit_office_path, class: 'btn btn-dark' %>
+    <%= link_to 'Delete office', office_path(@office), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-dark' %>
+  <% end %>
+</div>

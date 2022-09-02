@@ -1,31 +1,34 @@
-<h1>Rent an office</h1>
-<%= form_with url: offices_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find an office"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-<% @offices.each do |office| %>
-  <%= link_to office_path(office) do %>
-  <div class="card-product">
-    <%# <%= image_tag office.image_url %>
-    <div class="card-product-infos">
-      <h2><%= office.title %></h2>
-      <p>Price: Rs <%= number_with_delimiter(office.price, :delimiter => ',') %></p>
-    </div>
-  </div>
+<div class="container">
+  <h1>Rent an office</h1>
+  <%= form_with url: offices_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find an office"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
-<% end %>
+
+  <% @offices.each do |office| %>
+    <%= link_to office_path(office) do %>
+    <div class="card-product">
+      <%# <%= image_tag office.image_url %>
+      <div class="card-product-infos">
+        <h2><%= office.title %></h2>
+        <p>Price: Rs <%= number_with_delimiter(office.price, :delimiter => ',') %></p>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
 
 
 
-<%= link_to 'Add new office', new_office_path, class: 'btn btn-dark' %>
+  <%= link_to 'Add new office', new_office_path, class: 'btn btn-dark' %>
 
 
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+</div>
