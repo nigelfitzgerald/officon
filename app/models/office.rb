@@ -1,6 +1,9 @@
 class Office < ApplicationRecord
   belongs_to :user
 
+  validates :surface, :price, :description, :title, :address, presence: true
+  validates :title, length: { minimum: 10 }
+
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
@@ -9,6 +12,5 @@ class Office < ApplicationRecord
     against: [ :title, :description, :address ],
     using: {
       tsearch: { prefix: true }
-  }
-
+    }
 end
