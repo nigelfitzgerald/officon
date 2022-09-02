@@ -1,15 +1,15 @@
-<div class="container">
+<div class="container" style="height: 85vh">
   <div class="item"><h1><%= @office.title %></h1></div>
   <div class="card-office item">
     <%= cl_image_tag @office.photo.key %>
     <div class="card-office-infos">
       <div>
         <h2><%= @office.address %></h2>
-        <p><%= @office.description %></p>
+        <p>  <%= @office.description %></p>
       </div>
       <div>
-      <h2><%= @office.surface %>m<sup>2</sup></h2>
-      <h2 class="card-office-pricing">Rs <%= number_with_delimiter(@office.price, :delimiter => ',') %></h2>
+        <h2>  <%= @office.surface %>m<sup>2</sup></h2>
+        <h2 class="card-office-pricing">Rs   <%= number_with_delimiter(@office.price, :delimiter => ',') %></h2>
       </div>
     </div>
   </div>
