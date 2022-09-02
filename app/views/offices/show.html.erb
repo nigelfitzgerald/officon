@@ -10,6 +10,10 @@
   <%= f.submit %>
 <% end %>
 
+
+
 <%= link_to 'Back', offices_path, class: 'btn btn-dark' %>
-<%= link_to 'Edit office details', edit_office_path, class: 'btn btn-dark' %>
-<%= link_to 'Delete office', office_path(@office), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-dark' %>
+<% if @office.user == current_user %>
+  <%= link_to 'Edit office details', edit_office_path, class: 'btn btn-dark' %>
+  <%= link_to 'Delete office', office_path(@office), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-dark' %>
+<% end %>
